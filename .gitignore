@@ -1,0 +1,13 @@
+# Dependencies
+**/node_modules/
+
+# Local environment and secrets
+**/.env
+**/.env.*
+!**/.env.example
+
+# Build output and tooling
+**/dist/
+**/.vite/
+*.log
+.DS_Store

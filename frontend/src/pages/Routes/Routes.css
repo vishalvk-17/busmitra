@@ -1,0 +1,436 @@
+/* =====================================================
+   ROUTES PAGE
+===================================================== */
+
+.routes-page {
+  min-height: 100vh;
+
+  padding: 120px 5% 60px;
+
+  background: #f8fafc;
+
+  color: #0f172a;
+}
+
+.routes-container {
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.routes-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-bottom: 30px;
+}
+
+.routes-label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #2563eb;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.7px;
+}
+
+.routes-header h1 {
+  margin: 0;
+
+  font-size: 36px;
+
+  font-weight: 800;
+}
+
+.routes-header p {
+  max-width: 600px;
+
+  margin: 8px 0 0;
+
+  color: #64748b;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   COUNT
+===================================================== */
+
+.routes-count {
+  min-width: 100px;
+
+  padding: 16px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+}
+
+.routes-count strong {
+  font-size: 25px;
+
+  color: #2563eb;
+}
+
+.routes-count span {
+  color: #64748b;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.routes-search {
+  margin-bottom: 28px;
+}
+
+.routes-search input {
+  width: 100%;
+
+  height: 52px;
+
+  padding: 0 17px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 12px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #0f172a;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.routes-search input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px
+      rgba(37, 99, 235, 0.1);
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.routes-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.route-card {
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 7px 25px
+      rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.route-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 35px
+      rgba(15, 23, 42, 0.08);
+}
+
+
+/* =====================================================
+   CARD TOP
+===================================================== */
+
+.route-card-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.route-number {
+  display: inline-block;
+
+  margin-bottom: 7px;
+
+  padding: 4px 8px;
+
+  background: #eff6ff;
+
+  border-radius: 6px;
+
+  color: #2563eb;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+.route-card h2 {
+  margin: 0;
+
+  font-size: 19px;
+
+  font-weight: 800;
+}
+
+.route-name {
+  margin: 7px 0 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   LIVE
+===================================================== */
+
+.route-live {
+  padding: 6px 9px;
+
+  background: #dcfce7;
+
+  border-radius: 999px;
+
+  color: #15803d;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   INFO
+===================================================== */
+
+.route-card-info {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.route-card-info > div {
+  padding: 12px;
+
+  background: #f8fafc;
+
+  border-radius: 10px;
+}
+
+.route-card-info span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+.route-card-info strong {
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.route-view-btn {
+  width: 100%;
+
+  height: 44px;
+
+  margin-top: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.route-view-btn:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   EMPTY / ERROR
+===================================================== */
+
+.routes-empty,
+.routes-error,
+.routes-loading {
+  padding: 50px 25px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 18px;
+}
+
+.routes-empty p,
+.routes-error p,
+.routes-loading p {
+  color: #64748b;
+}
+
+.routes-error h2 {
+  color: #dc2626;
+}
+
+.routes-error button {
+  padding: 11px 18px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+  .routes-page {
+    padding: 100px 4% 45px;
+  }
+
+  .routes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .routes-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .routes-count {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 500px) {
+  .routes-header h1 {
+    font-size: 29px;
+  }
+
+  .route-card {
+    padding: 18px;
+  }
+
+  .route-card-info {
+    grid-template-columns: 1fr;
+  }
+
+  .route-card-top {
+    flex-direction: column;
+  }
+}

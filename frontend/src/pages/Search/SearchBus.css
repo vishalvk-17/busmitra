@@ -1,0 +1,570 @@
+/* =====================================================
+   SEARCH BUS PAGE
+===================================================== */
+
+.search-bus-page {
+  min-height: 100vh;
+
+  padding: 120px 6% 60px;
+
+  background: #f8fafc;
+
+  color: #0f172a;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.search-bus-header {
+  max-width: 1200px;
+
+  margin: 0 auto 32px;
+}
+
+.search-bus-header h1 {
+  margin: 0;
+
+  font-size: 34px;
+
+  font-weight: 800;
+
+  color: #0f172a;
+}
+
+.search-bus-header p {
+  margin-top: 8px;
+
+  color: #64748b;
+
+  font-size: 15px;
+
+  font-weight: 500;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.search-loading {
+  max-width: 1200px;
+
+  margin: 40px auto;
+
+  padding: 40px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 18px;
+}
+
+.search-loading p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.search-error {
+  max-width: 600px;
+
+  margin: 60px auto;
+
+  padding: 32px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 18px;
+}
+
+.search-error h3 {
+  margin: 0 0 8px;
+
+  color: #dc2626;
+}
+
+.search-error p {
+  margin: 0 0 20px;
+
+  color: #64748b;
+}
+
+.search-error button {
+  padding: 11px 18px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   NOT FOUND
+===================================================== */
+
+.bus-not-found {
+  max-width: 600px;
+
+  margin: 70px auto;
+
+  padding: 45px 30px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.bus-not-found h2 {
+  margin: 0 0 10px;
+
+  font-size: 24px;
+}
+
+.bus-not-found p {
+  margin: 0 0 24px;
+
+  color: #64748b;
+}
+
+.bus-not-found button {
+  padding: 12px 20px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   RESULTS
+===================================================== */
+
+.search-results {
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+.results-summary {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.results-summary h2 {
+  margin: 0;
+
+  font-size: 22px;
+
+  font-weight: 800;
+}
+
+.results-summary p {
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   BUS RESULTS
+===================================================== */
+
+.bus-results {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =====================================================
+   BUS CARD
+===================================================== */
+
+.bus-result-card {
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 25px rgba(15, 23, 42, 0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bus-result-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 35px rgba(15, 23, 42, 0.09);
+}
+
+
+/* =====================================================
+   CARD HEADER
+===================================================== */
+
+.bus-result-main {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+.bus-result-main h3 {
+  margin: 0;
+
+  font-size: 20px;
+
+  font-weight: 800;
+}
+
+.bus-result-main p {
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.trip-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+.trip-status.running {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+.trip-status.scheduled {
+  background: #dbeafe;
+
+  color: #1d4ed8;
+}
+
+.trip-status.boarding {
+  background: #fef3c7;
+
+  color: #b45309;
+}
+
+.trip-status.completed {
+  background: #e2e8f0;
+
+  color: #475569;
+}
+
+.trip-status.cancelled {
+  background: #fee2e2;
+
+  color: #b91c1c;
+}
+
+
+/* =====================================================
+   ROUTE
+===================================================== */
+
+.bus-route {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 20px;
+
+  padding: 13px 15px;
+
+  background: #f8fafc;
+
+  border-radius: 12px;
+
+  color: #334155;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.bus-route span:nth-child(2) {
+  color: #2563eb;
+}
+
+
+/* =====================================================
+   INFORMATION
+===================================================== */
+
+.bus-result-info {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+.bus-result-info > div {
+  padding: 12px;
+
+  background: #f8fafc;
+
+  border-radius: 10px;
+}
+
+.bus-result-info small,
+.trip-time small {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.bus-result-info strong,
+.trip-time strong {
+  color: #0f172a;
+
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   TRIP TIME
+===================================================== */
+
+.trip-time {
+  margin-top: 14px;
+
+  padding: 11px 13px;
+
+  background: #f8fafc;
+
+  border-radius: 10px;
+}
+
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.bus-card-actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.bus-card-actions button {
+  flex: 1;
+
+  min-height: 44px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* =====================================================
+   VIEW BUS
+===================================================== */
+
+.view-bus-btn {
+  border: 1px solid #2563eb;
+
+  background: #ffffff;
+
+  color: #2563eb;
+}
+
+.view-bus-btn:hover {
+  background: #eff6ff;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   TRACK LIVE
+===================================================== */
+
+.track-bus-btn {
+  border: 1px solid #16a34a;
+
+  background: #16a34a;
+
+  color: #ffffff;
+}
+
+.track-bus-btn:hover {
+  background: #15803d;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 18px rgba(22, 163, 74, 0.2);
+}
+
+
+/* =====================================================
+   DISABLED
+===================================================== */
+
+.bus-card-actions button:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+  .search-bus-page {
+    padding: 100px 4% 50px;
+  }
+
+  .bus-results {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+  .search-bus-page {
+    padding: 90px 16px 40px;
+  }
+
+  .search-bus-header h1 {
+    font-size: 28px;
+  }
+
+  .bus-result-card {
+    padding: 18px;
+  }
+
+  .bus-result-main h3 {
+    font-size: 18px;
+  }
+
+  .bus-result-info {
+    grid-template-columns: 1fr;
+  }
+
+  .bus-route {
+    flex-wrap: wrap;
+  }
+
+  .bus-card-actions {
+    flex-direction: column;
+  }
+
+  .bus-card-actions button {
+    width: 100%;
+  }
+}
