@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-.portal-links{display:flex;gap:8px}.portal-links a{padding:8px 10px;border:1px solid #dbeafe;border-radius:9px;color:#2563eb;text-decoration:none;font-size:12px;font-weight:700}.portal-links a:hover{background:#eff6ff}.download-btn{text-decoration:none}
+.portal-links{display:flex;gap:8px}.portal-links a{padding:8px 10px;border:1px solid #dbeafe;border-radius:9px;color:#2563eb;text-decoration:none;font-size:12px;font-weight:700}.portal-links a:hover{background:#eff6ff}.download-btn{text-decoration:none}.auth-actions{display:flex;align-items:center;gap:10px}.login-link,.signup-link{padding:11px 16px;border-radius:11px;text-decoration:none;font-size:14px;font-weight:700}.login-link{color:#2563eb}.signup-link{background:#2563eb;color:#fff;box-shadow:0 8px 18px rgba(37,99,235,.2)}
 
 *{
     margin:0;
@@ -221,10 +221,38 @@ display:none;
 
 }
 
+.auth-actions .download-btn{
+
+display:flex;
+padding:10px 13px;
+border-radius:10px;
+font-size:13px;
+
+}
+
+.portal-links{
+
+display:none;
+
+}
+
 .logo-text{
 
 font-size:28px;
 
 }
+
+}
+
+@media(max-width:680px){
+
+.navbar{padding:10px 0;border-radius:0 0 14px 14px;}
+.navbar-container{width:94%;gap:8px;}
+.logo{gap:7px;}
+.logo-icon{width:36px;height:36px;border-radius:11px;font-size:17px;}
+.logo-text{font-size:20px;white-space:nowrap;}
+.portal-links{display:none;}
+.auth-actions{gap:4px;}
+.login-link,.signup-link{padding:8px 9px;border-radius:8px;font-size:12px;white-space:nowrap;}
 
 }

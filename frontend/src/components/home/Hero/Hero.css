@@ -172,6 +172,10 @@
   background: rgba(255, 255, 255, 0.7);
 }
 
+.signup-hero-btn {
+  text-decoration: none;
+}
+
 .secondary-btn svg {
   font-size: 21px;
 }
@@ -659,6 +663,10 @@
   }
 
   .hero-buttons button {
+    width: 100%;
+  }
+
+  .signup-hero-btn {
     width: 100%;
   }
 }

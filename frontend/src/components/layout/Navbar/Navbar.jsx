@@ -61,20 +61,19 @@ export default function Navbar() {
           <Link to="/admin/login">Admin</Link>
         </div>
 
-        {/* Download Button */}
-
-        <Link
-          to={isLoggedIn ? "/dashboard" : "/login"}
-          className="download-btn"
-        >
-
-          <FaDownload />
-
-          <span>
-            {isLoggedIn ? "My Dashboard" : "Login"}
-          </span>
-
-        </Link>
+        <div className="auth-actions">
+          {isLoggedIn ? (
+            <Link to="/dashboard" className="download-btn">
+              <FaDownload />
+              <span>My Dashboard</span>
+            </Link>
+          ) : (
+            <>
+              <Link to="/login" className="login-link">Log in</Link>
+              <Link to="/register" className="signup-link">Sign up</Link>
+            </>
+          )}
+        </div>
 
       </div>
     </header>

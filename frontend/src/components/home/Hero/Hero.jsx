@@ -9,6 +9,7 @@ import {
 
 import heroImage from "../../../assets/images/hero-image.png";
 import usersImage from "../../../assets/images/users.png";
+import { Link } from "react-router-dom";
 
 function Hero({
   form,
@@ -144,6 +145,13 @@ function Hero({
 
               <FaArrowRight />
             </button>
+
+            <Link
+              to="/register"
+              className="secondary-btn signup-hero-btn"
+            >
+              Create Free Account
+            </Link>
 
             <button
               className="secondary-btn"
