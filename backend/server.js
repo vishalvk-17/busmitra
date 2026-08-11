@@ -30,23 +30,31 @@ const app = express();
 // MIDDLEWARE
 // =====================================================
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://busmitra-nine.vercel.app/",
-];
+const normalizeOrigin = (origin) =>
+  origin?.replace(/\/$/, "");
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
+const allowedOrigins = new Set(
+  [
+    "http://localhost:5173",
+    "https://busmitra-nine.vercel.app",
+    process.env.FRONTEND_URL,
+  ]
+    .filter(Boolean)
+    .map(normalizeOrigin)
 );
+
+const corsOptions = {
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.has(normalizeOrigin(origin))) {
+      return callback(null, true);
+    }
+
+    return callback(new Error("Origin is not allowed by CORS"));
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -102,11 +110,7 @@ const server = http.createServer(app);
 // =====================================================
 
 const io = new Server(server, {
-  cors: {
-    origin:
-      process.env.FRONTEND_URL || "http://localhost:5173",
-    credentials: true,
-  },
+  cors: corsOptions,
 });
 
 app.set("io", io);
