@@ -461,6 +461,11 @@ function TrackBus() {
     trip?.status === "running" &&
     !tripEnded;
 
+  const remainingDistance = trip?.remainingDistanceKm;
+  const etaMinutes = remainingDistance !== undefined && remainingDistance !== null
+    ? Math.max(1, Math.round((remainingDistance / Math.max(location?.speed || trip?.currentSpeed || 35, 15)) * 60))
+    : null;
+
   return (
     <div className="track-bus-page">
 
@@ -570,6 +575,18 @@ function TrackBus() {
       ============================================== */}
 
       <div className="tracking-map">
+
+        <div className="map-route-summary">
+          <strong>{trip?.route?.origin || "Origin"} <span>→</span> {trip?.route?.destination || "Destination"}</strong>
+          <div><b>{trip?.bus?.operator?.name || "Bus Mitra Travels"}</b><em className={isLive ? "live" : ""}>{isLive ? "Live" : "Trip Ended"}</em></div>
+        </div>
+
+        {mapPosition && !tripEnded && (
+          <div className="map-eta-bubble">
+            <strong>{etaMinutes ? `In ${etaMinutes} min` : "Live location"}</strong>
+            <span>{remainingDistance !== undefined && remainingDistance !== null ? `${remainingDistance} km away` : "Tracking in real time"}</span>
+          </div>
+        )}
 
         {mapPosition ? (
 
@@ -702,6 +719,14 @@ function TrackBus() {
 
       <div className="tracking-info">
 
+        <div className="live-bus-title">
+          <div>
+            <strong>{trip?.bus?.busNumber || "Bus"}</strong>
+            <span>{trip?.bus?.operator?.name || "Bus Mitra Travels"}</span>
+          </div>
+          <button type="button" onClick={() => window.location.reload()} aria-label="Refresh live location"><FaSyncAlt /></button>
+        </div>
+
         <div className="tracking-card">
 
           <span>
@@ -740,7 +765,7 @@ function TrackBus() {
 
           <strong>
             {isLive
-              ? `${location?.speed || 0} km/h`
+              ? `${location?.speed || trip?.currentSpeed || 0} km/h`
               : "—"}
           </strong>
 
