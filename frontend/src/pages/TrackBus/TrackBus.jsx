@@ -18,6 +18,18 @@ import {
 } from "react-leaflet";
 
 import L from "leaflet";
+import {
+  FaArrowLeft,
+  FaBars,
+  FaBell,
+  FaBus,
+  FaExclamationTriangle,
+  FaList,
+  FaRoute,
+  FaShareAlt,
+  FaSyncAlt,
+  FaUserCircle,
+} from "react-icons/fa";
 
 import liveTrackingService from "../../services/liveTrackingService";
 import tripService from "../../services/tripService";
@@ -456,6 +468,17 @@ function TrackBus() {
           HEADER
       ============================================== */}
 
+      <header className="tracking-topbar">
+        <button type="button" className="tracking-menu-btn" aria-label="Open menu"><FaBars /></button>
+        <div className="tracking-brand"><span><FaBus /></span><strong>Bus <em>Mitra</em></strong></div>
+        <div className="tracking-top-actions">
+          <button type="button"><FaShareAlt /><span>Share</span></button>
+          <button type="button" onClick={() => window.location.reload()}><FaSyncAlt /><span>Refresh</span></button>
+          <button type="button" aria-label="Notifications"><FaBell /></button>
+          <FaUserCircle />
+        </div>
+      </header>
+
       <div className="tracking-header">
 
         <div>
@@ -673,6 +696,10 @@ function TrackBus() {
           INFO CARDS
       ============================================== */}
 
+      <div className="tracking-map-actions">
+        <button type="button" onClick={() => navigate(-1)}><FaArrowLeft /> Back</button>
+      </div>
+
       <div className="tracking-info">
 
         <div className="tracking-card">
@@ -743,6 +770,30 @@ function TrackBus() {
         </div>
 
       </div>
+
+      <section className="journey-progress-card">
+        <div className="journey-progress-head">
+          <strong>Journey Progress</strong>
+          <span>{stops.length ? `${Math.min(stops.length, 1)} of ${stops.length} stops` : "Route loading"}</span>
+        </div>
+        <div className="journey-progress-bar"><i style={{ width: stops.length ? `${100 / stops.length}%` : "0%" }} /></div>
+        <div className="journey-stop-list">
+          {stops.length ? stops.map((stop, index) => (
+            <div key={stop._id} className={index === 0 ? "current" : "upcoming"}>
+              <span>{index === 0 ? <FaBus /> : ""}</span>
+              <strong>{stop.name}</strong>
+              <small>{stop.estimatedArrivalMinutes !== undefined ? `${stop.estimatedArrivalMinutes} min` : ""}</small>
+            </div>
+          )) : <p>Stops will appear when route details are configured.</p>}
+        </div>
+      </section>
+
+      <nav className="tracking-bottom-nav">
+        <button className="active"><FaBus /><span>Track Bus</span></button>
+        <button><FaRoute /><span>Route Details</span></button>
+        <button><FaList /><span>All Stops</span></button>
+        <button onClick={() => navigate("/contact")}><FaExclamationTriangle /><span>Report Issue</span></button>
+      </nav>
 
     </div>
   );

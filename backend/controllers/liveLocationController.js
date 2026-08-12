@@ -175,7 +175,60 @@ const getLatestLocation = async (req, res) => {
   }
 };
 
+const getNearbyLiveBuses = async (req, res) => {
+  try {
+    const latitude = Number(req.query.latitude);
+    const longitude = Number(req.query.longitude);
+    const radius = Math.min(Math.max(Number(req.query.radius) || 10, 1), 100);
+
+    if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+      return res.status(400).json({ success: false, message: "Valid latitude and longitude are required" });
+    }
+
+    const trips = await Trip.find({
+      status: { $in: ["running", "boarding", "paused"] },
+      "currentLocation.latitude": { $ne: null },
+      "currentLocation.longitude": { $ne: null },
+    })
+      .populate("bus", "busNumber busType totalSeats amenities operator liveTracking")
+      .populate("driver", "name phone")
+      .populate("route", "origin destination routeName")
+      .populate("nextStop", "name city")
+      .sort({ "currentLocation.updatedAt": -1 })
+      .limit(100);
+
+    const radians = (value) => (value * Math.PI) / 180;
+    const calculateDistance = (toLatitude, toLongitude) => {
+      const earthRadiusKm = 6371;
+      const latitudeDelta = radians(toLatitude - latitude);
+      const longitudeDelta = radians(toLongitude - longitude);
+      const value = Math.sin(latitudeDelta / 2) ** 2 + Math.cos(radians(latitude)) * Math.cos(radians(toLatitude)) * Math.sin(longitudeDelta / 2) ** 2;
+      return earthRadiusKm * 2 * Math.atan2(Math.sqrt(value), Math.sqrt(1 - value));
+    };
+
+    const buses = trips.map((trip) => ({
+      tripId: trip._id,
+      bus: trip.bus,
+      driver: trip.driver,
+      route: trip.route,
+      nextStop: trip.nextStop,
+      status: trip.status,
+      speed: trip.currentSpeed,
+      estimatedArrivalTime: trip.estimatedArrivalTime,
+      location: trip.currentLocation,
+      distanceKm: Number(calculateDistance(trip.currentLocation.latitude, trip.currentLocation.longitude).toFixed(2)),
+      updatedAt: trip.currentLocation.updatedAt,
+    })).filter((trip) => trip.distanceKm <= radius).sort((first, second) => first.distanceKm - second.distanceKm);
+
+    return res.status(200).json({ success: true, location: { latitude, longitude }, radiusKm: radius, count: buses.length, buses });
+  } catch (error) {
+    console.error("Nearby Live Buses Error:", error);
+    return res.status(500).json({ success: false, message: "Failed to fetch nearby buses" });
+  }
+};
+
 module.exports = {
   updateLiveLocation,
   getLatestLocation,
+  getNearbyLiveBuses,
 };

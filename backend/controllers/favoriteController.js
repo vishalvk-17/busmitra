@@ -34,6 +34,8 @@ const getMyFavorites = async (
             distanceKm
             estimatedDurationMinutes
             fare
+            firstBusTime
+            lastBusTime
           `
         )
         .sort({

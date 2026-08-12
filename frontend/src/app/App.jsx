@@ -25,6 +25,10 @@ import AdminDashboard from "../pages/AdminDashboard/AdminDashboard";
 import PassengerDashboard from "../pages/PassengerDashboard/PassengerDashboard";
 import DriverLogin from "../pages/DriverLogin/DriverLogin";
 import DriverDashboard from "../pages/DriverDashboard/DriverDashboard";
+import Settings from "../pages/Settings/Settings";
+import Privacy from "../pages/Privacy/Privacy";
+import Terms from "../pages/Terms/Terms";
+import NearbyBuses from "../pages/NearbyBuses/NearbyBuses";
 
 function App() {
   return (
@@ -57,6 +61,9 @@ function App() {
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
 
         <Route path="/dashboard" element={<PassengerDashboard />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/driver/login" element={<DriverLogin />} />
         <Route path="/driver/dashboard" element={<DriverDashboard />} />
 
@@ -75,6 +82,8 @@ function App() {
           path="/track-bus"
           element={<TrackBus />}
         />
+
+        <Route path="/nearby-buses" element={<NearbyBuses />} />
 
         <Route
           path="/routes"

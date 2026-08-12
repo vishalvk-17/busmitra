@@ -1,3 +1,5 @@
-export default function NotFound() {
-  return <div>404 Page</div>;
-}
+import { Link, useNavigate } from "react-router-dom";
+import { FaArrowLeft, FaBus, FaHome, FaMap, FaQuestionCircle, FaRoute, FaSearch } from "react-icons/fa";
+import busImage from "../../assets/images/bus.png";
+import "./NotFound.css";
+export default function NotFound(){const nav=useNavigate();return <main className="notfound"><header><button onClick={()=>nav(-1)}><FaArrowLeft/></button><Link to="/" className="nf-brand"><span><FaBus/></span><b>Bus <em>Mitra</em></b></Link><Link to="/"><FaHome/></Link></header><section className="nf-hero"><h1>404</h1><h2>Oops! Page Not Found</h2><p>The page you&apos;re looking for doesn&apos;t exist<br/>or has been moved.</p><div className="nf-scene"><img src={busImage} alt="Bus on a road"/><div><b>HOME</b><b>ALL ROUTES</b><b>TRACK BUS</b></div></div></section><section className="nf-actions"><div>{[[<FaSearch/>,"Check the URL","Make sure the web address is correct."],[<FaMap/>,"Go to Home","Explore our homepage to get started."],[<FaBus/>,"Browse Routes","Find and track buses across India."]].map(([i,t,d])=><article key={t}><i>{i}</i><b>{t}</b><span>{d}</span></article>)}</div><p><Link to="/"><FaHome/> Go to Home</Link><Link to="/routes"><FaRoute/> View All Routes</Link></p></section><section className="nf-support"><FaQuestionCircle/><div><b>Still need help?</b><span>Our support team is here for you.</span></div><Link to="/contact">💬 Contact Support</Link></section></main>}
