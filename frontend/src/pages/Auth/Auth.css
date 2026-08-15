@@ -1,1 +1,1105 @@
 .passenger-auth{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:#f6f9ff}.passenger-auth-visual{padding:9vw;display:grid;align-content:center;gap:18px;background:linear-gradient(145deg,#e8f3ff,#fff);color:#12406a}.passenger-auth-visual strong{color:#075de8;font-size:22px}.passenger-auth-visual h1{margin:0;font-size:42px}.passenger-auth-card{width:min(100%,430px);align-self:center;justify-self:center;padding:36px;background:#fff;border:1px solid #e5edf7;border-radius:18px;box-shadow:0 16px 42px #1e5b9820}.passenger-auth-card h2{margin:0 0 6px}.passenger-auth-card>p{margin:0 0 24px;color:#718096}.passenger-auth-card form{display:grid;gap:13px}.passenger-auth-card label{display:grid;gap:6px;color:#36536f;font-size:13px;font-weight:700}.passenger-auth-card input{padding:12px;border:1px solid #ccd9e7;border-radius:8px;font:inherit}.passenger-auth-card button{margin-top:5px;padding:13px;border:0;border-radius:8px;background:#075de8;color:#fff;font-weight:800;cursor:pointer}.passenger-auth-card a{color:#075de8;text-decoration:none;font-weight:700}.auth-error{padding:10px;border-radius:7px;background:#fff1f2;color:#be123c;font-size:13px}@media(max-width:720px){.passenger-auth{grid-template-columns:1fr}.passenger-auth-visual{display:none}.passenger-auth-card{margin:20px}}
+
+
+/* =========================================
+   BUS MITRA DRIVER LOGIN
+   ========================================= */
+
+.driver-login-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #ffffff;
+  color: #10245d;
+  overflow-x: hidden;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.driver-login-hero {
+  position: relative;
+  height: 690px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 34%, #ffffff 0%, #f7faff 42%, #edf5ff 100%);
+  border-radius: 0 0 38px 38px;
+}
+
+/* Status bar */
+
+.driver-status-bar {
+  position: absolute;
+  top: 27px;
+  left: 58px;
+  right: 58px;
+  z-index: 20;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: #050505;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.signal-icon {
+  font-size: 12px;
+  letter-spacing: -3px;
+}
+
+.wifi-icon {
+  font-size: 24px;
+  line-height: 1;
+  transform: rotate(-45deg);
+}
+
+.battery-icon {
+  position: relative;
+  width: 34px;
+  height: 16px;
+  border: 2px solid #111;
+  border-radius: 4px;
+}
+
+.battery-icon::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: 4px;
+  width: 3px;
+  height: 7px;
+  background: #111;
+  border-radius: 0 2px 2px 0;
+}
+
+.battery-icon::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #111;
+  border-radius: 1px;
+}
+
+/* Hero content */
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 135px;
+  text-align: center;
+}
+
+.bus-mitra-logo {
+  position: relative;
+  width: 170px;
+  height: 165px;
+  margin-bottom: 4px;
+}
+
+.bus-logo-circle {
+  position: absolute;
+  left: 17px;
+  top: 20px;
+
+  width: 125px;
+  height: 125px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #1261ed;
+}
+
+.bus-logo-svg {
+  width: 90px;
+  height: 90px;
+}
+
+.location-pin {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  width: 66px;
+  height: 82px;
+
+  transform: rotate(-8deg);
+}
+
+.location-pin svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-content h1 {
+  margin: -5px 0 12px;
+
+  color: #112d70;
+  font-size: 52px;
+  line-height: 1;
+  font-weight: 750;
+  letter-spacing: -2px;
+}
+
+.driver-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  color: #24945f;
+  font-size: 26px;
+  font-weight: 650;
+  letter-spacing: 1px;
+}
+
+.driver-title span {
+  width: 23px;
+  height: 3px;
+  border-radius: 10px;
+  background: #24945f;
+}
+
+.hero-content > p {
+  margin: 20px 0 0;
+
+  color: #405681;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+/* =========================================
+   CITY BACKGROUND
+   ========================================= */
+
+.city-skyline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 85px;
+  height: 290px;
+
+  opacity: 0.75;
+}
+
+.building {
+  position: absolute;
+  bottom: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(180, 211, 250, 0.72),
+    rgba(210, 228, 250, 0.28)
+  );
+
+  border-radius: 8px 8px 0 0;
+}
+
+.building::after {
+  content: "";
+  position: absolute;
+  inset: 15px 12px;
+
+  background-image:
+    linear-gradient(
+      to right,
+      transparent 0 40%,
+      rgba(255, 255, 255, 0.75) 40% 47%,
+      transparent 47% 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0 20%,
+      rgba(255, 255, 255, 0.65) 20% 27%,
+      transparent 27% 100%
+    );
+
+  opacity: 0.65;
+}
+
+.building-1 {
+  left: 3%;
+  width: 60px;
+  height: 150px;
+}
+
+.building-2 {
+  left: 10%;
+  width: 85px;
+  height: 220px;
+}
+
+.building-3 {
+  left: 22%;
+  width: 55px;
+  height: 160px;
+}
+
+.building-4 {
+  right: 22%;
+  width: 80px;
+  height: 175px;
+}
+
+.building-5 {
+  right: 11%;
+  width: 100px;
+  height: 220px;
+}
+
+.building-6 {
+  right: 2%;
+  width: 70px;
+  height: 140px;
+}
+
+/* =========================================
+   HERO BUS
+   ========================================= */
+
+.hero-bus {
+  position: absolute;
+  z-index: 8;
+
+  right: 125px;
+  bottom: 48px;
+
+  width: 340px;
+  height: 145px;
+}
+
+.bus-body {
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+
+  width: 305px;
+  height: 105px;
+
+  border-radius: 42px 16px 15px 15px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #1971ed 0 12%,
+      #ffffff 12% 74%,
+      #d8e8fb 74% 100%
+    );
+
+  box-shadow: 0 10px 22px rgba(23, 86, 160, 0.2);
+
+  transform: skewX(-5deg);
+}
+
+.bus-front {
+  position: absolute;
+  left: -38px;
+  bottom: 8px;
+
+  width: 70px;
+  height: 80px;
+
+  border-radius: 42px 15px 12px 15px;
+
+  background: linear-gradient(
+    135deg,
+    #155bd1,
+    #1873ee 55%,
+    #0b3eaa
+  );
+}
+
+.bus-window {
+  position: absolute;
+  left: 58px;
+  top: 16px;
+
+  width: 180px;
+  height: 45px;
+
+  border-radius: 8px;
+
+  background: linear-gradient(
+    135deg,
+    #122d54,
+    #244f7d
+  );
+}
+
+.bus-windshield {
+  position: absolute;
+  left: 9px;
+  top: 20px;
+
+  width: 43px;
+  height: 53px;
+
+  border-radius: 12px 5px 5px 8px;
+
+  background: #193b63;
+}
+
+.bus-name {
+  position: absolute;
+  right: 46px;
+  top: 67px;
+
+  color: #1161dc;
+  font-size: 18px;
+  font-weight: 750;
+  transform: skewX(5deg);
+}
+
+.bus-wheel {
+  position: absolute;
+  bottom: -21px;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+  background: #172333;
+
+  border: 7px solid #e8eef5;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.bus-wheel span {
+  position: absolute;
+  inset: 11px;
+
+  border-radius: 50%;
+  background: #a9b7c8;
+}
+
+.wheel-one {
+  left: 55px;
+}
+
+.wheel-two {
+  right: 42px;
+}
+
+.road {
+  position: absolute;
+  z-index: 4;
+
+  left: -10%;
+  right: -10%;
+  bottom: 0;
+
+  height: 95px;
+
+  background:
+    linear-gradient(
+      170deg,
+      transparent 0 32%,
+      rgba(255, 255, 255, 0.9) 32% 35%,
+      transparent 35% 100%
+    ),
+    linear-gradient(
+      175deg,
+      #eaf3ff,
+      #dbeaff
+    );
+
+  transform: skewY(-1deg);
+}
+
+.road::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25px;
+
+  height: 4px;
+
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* =========================================
+   LOGIN CARD
+   ========================================= */
+
+.driver-login-card {
+  position: relative;
+  z-index: 30;
+
+  width: calc(100% - 0px);
+  min-height: 950px;
+
+  margin-top: -1px;
+  padding: 60px 54px 40px;
+
+  background: #ffffff;
+
+  border-radius: 38px 38px 0 0;
+
+  box-shadow:
+    0 -10px 35px rgba(50, 100, 180, 0.04);
+}
+
+.login-heading {
+  text-align: center;
+}
+
+.login-heading h2 {
+  margin: 0;
+
+  color: #10245d;
+
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 750;
+  letter-spacing: -1px;
+}
+
+.login-heading h2 span {
+  font-size: 31px;
+}
+
+.login-heading p {
+  margin: 17px 0 45px;
+
+  color: #526486;
+  font-size: 22px;
+}
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+.driver-login-form {
+  width: 100%;
+}
+
+.driver-input-box {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 122px;
+
+  margin-bottom: 24px;
+  padding: 20px 24px;
+
+  border: 2px solid #dce4f1;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.driver-input-box:focus-within {
+  border-color: #4d8cf4;
+  box-shadow: 0 0 0 4px rgba(18, 97, 237, 0.08);
+}
+
+.input-icon {
+  flex: 0 0 auto;
+
+  width: 62px;
+  height: 62px;
+
+  margin-right: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #edf4ff;
+  color: #1161ed;
+}
+
+.input-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.input-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.input-content label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #4e6288;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.input-content input {
+  display: block;
+
+  width: 100%;
+  padding: 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #26385f;
+  font-family: inherit;
+  font-size: 20px;
+}
+
+.input-content input::placeholder {
+  color: #7b8bab;
+  opacity: 1;
+}
+
+.password-toggle {
+  flex: 0 0 auto;
+
+  width: 42px;
+  height: 42px;
+
+  margin-left: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  background: transparent;
+
+  color: #657493;
+
+  cursor: pointer;
+}
+
+.password-toggle svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* =========================================
+   ERROR
+   ========================================= */
+
+.driver-auth-error {
+  margin: -5px 0 18px;
+  padding: 12px 15px;
+
+  border-radius: 10px;
+
+  background: #fff0f0;
+  color: #c62828;
+
+  font-size: 16px;
+}
+
+/* =========================================
+   REMEMBER ME
+   ========================================= */
+
+.login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 15px 0 40px;
+}
+
+.remember-me {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  color: #11265d;
+
+  font-size: 20px;
+  font-weight: 650;
+
+  cursor: pointer;
+}
+
+.remember-me input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom-checkbox {
+  width: 33px;
+  height: 33px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #d1d9e8;
+  border-radius: 7px;
+
+  background: white;
+
+  color: white;
+
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.remember-me input:checked + .custom-checkbox {
+  border-color: #1261ed;
+  background: #1261ed;
+}
+
+.login-options > a {
+  color: #1161ed;
+
+  font-size: 20px;
+  font-weight: 650;
+
+  text-decoration: none;
+}
+
+/* =========================================
+   LOGIN BUTTON
+   ========================================= */
+
+.driver-login-button {
+  width: 100%;
+  height: 96px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  border: 0;
+  border-radius: 18px;
+
+  background: linear-gradient(
+    100deg,
+    #1261ed,
+    #1556e8
+  );
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 28px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 24px rgba(18, 97, 237, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.driver-login-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 13px 28px rgba(18, 97, 237, 0.25);
+}
+
+.driver-login-button:active {
+  transform: translateY(1px);
+}
+
+.driver-login-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.driver-login-button svg {
+  width: 39px;
+  height: 39px;
+}
+
+/* =========================================
+   DIVIDER
+   ========================================= */
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  margin: 35px 0;
+}
+
+.login-divider span {
+  flex: 1;
+
+  height: 2px;
+
+  background: #e3e7ef;
+}
+
+.login-divider strong {
+  color: #61708d;
+
+  font-size: 21px;
+  font-weight: 500;
+}
+
+/* =========================================
+   OTP
+   ========================================= */
+
+.otp-button {
+  width: 100%;
+  height: 91px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+
+  border: 2px solid #d5e2fb;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  color: #1161ed;
+
+  font-family: inherit;
+  font-size: 25px;
+  font-weight: 650;
+
+  cursor: pointer;
+}
+
+.otp-button svg {
+  width: 38px;
+  height: 38px;
+}
+
+/* =========================================
+   HELP
+   ========================================= */
+
+.driver-help {
+  min-height: 126px;
+
+  display: flex;
+  align-items: center;
+
+  margin-top: 42px;
+  padding: 22px 25px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    110deg,
+    #f4f8ff,
+    #f0f5fd
+  );
+
+  color: #11265d;
+
+  text-decoration: none;
+}
+
+.help-icon {
+  flex: 0 0 auto;
+
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 22px;
+
+  color: #114fc1;
+}
+
+.help-icon svg {
+  width: 43px;
+  height: 43px;
+}
+
+.driver-help > div:nth-child(2) {
+  flex: 1;
+}
+
+.driver-help strong {
+  display: block;
+
+  margin-bottom: 9px;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.driver-help p {
+  margin: 0;
+
+  color: #62728f;
+  font-size: 19px;
+}
+
+.driver-help p span {
+  color: #1261ed;
+  font-weight: 600;
+}
+
+.help-arrow {
+  color: #123e9a;
+
+  font-size: 45px;
+  line-height: 1;
+}
+
+/* =========================================
+   VERSION
+   ========================================= */
+
+.version-text {
+  margin: 34px 0 0;
+
+  text-align: center;
+
+  color: #78849c;
+  font-size: 18px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (min-width: 700px) {
+  .driver-login-page {
+    max-width: 853px;
+    margin: 0 auto;
+
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.08);
+  }
+
+  .driver-login-hero {
+    height: 690px;
+  }
+
+  .driver-login-card {
+    padding-left: 54px;
+    padding-right: 54px;
+  }
+}
+
+@media (max-width: 600px) {
+  .driver-login-hero {
+    height: 575px;
+    border-radius: 0 0 28px 28px;
+  }
+
+  .driver-status-bar {
+    top: 18px;
+    left: 25px;
+    right: 25px;
+  }
+
+  .hero-content {
+    padding-top: 88px;
+  }
+
+  .bus-mitra-logo {
+    width: 120px;
+    height: 115px;
+  }
+
+  .bus-logo-circle {
+    width: 90px;
+    height: 90px;
+    left: 10px;
+    top: 13px;
+  }
+
+  .bus-logo-svg {
+    width: 65px;
+    height: 65px;
+  }
+
+  .location-pin {
+    width: 47px;
+    height: 58px;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .driver-title {
+    font-size: 20px;
+  }
+
+  .hero-content > p {
+    margin-top: 13px;
+    font-size: 16px;
+  }
+
+  .hero-bus {
+    right: 25px;
+    bottom: 43px;
+    transform: scale(0.75);
+    transform-origin: right bottom;
+  }
+
+  .city-skyline {
+    bottom: 65px;
+  }
+
+  .driver-login-card {
+    padding: 38px 22px 30px;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .login-heading h2 {
+    font-size: 27px;
+  }
+
+  .login-heading h2 span {
+    font-size: 25px;
+  }
+
+  .login-heading p {
+    margin: 12px 0 30px;
+    font-size: 17px;
+  }
+
+  .driver-input-box {
+    min-height: 92px;
+    padding: 14px 15px;
+    border-radius: 15px;
+  }
+
+  .input-icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 13px;
+    border-radius: 11px;
+  }
+
+  .input-icon svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .input-content label {
+    font-size: 17px;
+  }
+
+  .input-content input {
+    font-size: 15px;
+  }
+
+  .login-options {
+    margin: 10px 0 25px;
+  }
+
+  .remember-me {
+    font-size: 15px;
+  }
+
+  .custom-checkbox {
+    width: 27px;
+    height: 27px;
+  }
+
+  .login-options > a {
+    font-size: 15px;
+  }
+
+  .driver-login-button {
+    height: 68px;
+    border-radius: 14px;
+    font-size: 21px;
+  }
+
+  .driver-login-button svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .login-divider {
+    margin: 25px 0;
+  }
+
+  .login-divider strong {
+    font-size: 16px;
+  }
+
+  .otp-button {
+    height: 65px;
+    border-radius: 14px;
+    font-size: 19px;
+  }
+
+  .otp-button svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .driver-help {
+    min-height: 92px;
+    margin-top: 28px;
+    padding: 15px;
+  }
+
+  .help-icon {
+    width: 43px;
+    height: 43px;
+    margin-right: 13px;
+  }
+
+  .help-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .driver-help strong {
+    font-size: 17px;
+  }
+
+  .driver-help p {
+    font-size: 14px;
+  }
+
+  .help-arrow {
+    font-size: 35px;
+  }
+
+  .version-text {
+    margin-top: 25px;
+    font-size: 15px;
+  }
+}
